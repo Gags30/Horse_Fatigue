@@ -117,6 +117,8 @@ def translate(phrase): # Remove the brackets from the output
             translation = translation + letter
     return translation
 
+def update_time():
+    label_updated_time['text']="Last Updated at: "+ datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 def add_horse_to_txt(): #function to add horses to .txt file
     try:
@@ -291,6 +293,8 @@ def check_fatigue():
         label_horse_name_9['text'] = horse_name_9
         label_horse_id_9['text'] = horse_id_9
         label_horse_fatigue_9['text'] = horse_fatigue_9
+
+        update_time() #finally, update time
     except NameError:
         messagebox.showerror(title="No API Key Found!", message="API Key not found, please add API key!")
 
@@ -319,7 +323,9 @@ def clear_api_key():
 
 def information_message():
     tk.messagebox.showinfo(title="Help and Information", message="How to Use:\n1. Enter your API key into the entry box and "
-                                                                 "click 'Add API Key'\n2. Enter a horse by it's ID# and "
+                                                                 "click 'Add API Key'\n***You MUST enter the API key "
+                                                                 "you retrieve from the command console. How to do this "
+                                                                 "can be found here: https://docs.zed.run/getting-started/api-keys\n2. Enter a horse by it's ID# and "
                                                                  "click 'Add Horse'\n3. The horse's name and fatigue will "
                                                                  "automatically be shown\n4. You may only enter horses "
                                                                  "one at a time, but you may save up to 10 horses."
@@ -385,7 +391,7 @@ def clear_horses():
             global horse_fatigue_8
             global horse_fatigue_9
 
-            
+
             horse_name_0 = ""
             horse_name_1 = ""
             horse_name_2 = ""
@@ -458,6 +464,7 @@ def clear_horses():
             label_horse_name_9['text'] = horse_name_9
             label_horse_id_9['text'] = horse_id_9
             label_horse_fatigue_9['text'] = horse_fatigue_9
+
     else:
         return
 
